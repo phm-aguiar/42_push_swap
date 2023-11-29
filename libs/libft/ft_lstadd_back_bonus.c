@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/29 11:36:01 by zeenyt           ###   ########.fr       */
+/*   Created: 2023/08/09 15:16:51 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/10/12 18:14:38 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_lstadd_back(t_list **lst, t_list *new_node)
 {
-	t_stack	*stack_a;
+	t_list	*last;
 
-	if (argc < 2)
-		return (1);
-	stack_a = create_stack(argc - 1, ++argv);
-	check_duplicate(stack_a);
-	clear_stack(&stack_a, free, "Finish test.");
-	return (0);
+	if (!*lst)
+	{
+		*lst = new_node;
+		return ;
+	}
+	last = ft_lstlast(*lst);
+	last->next = new_node;
 }

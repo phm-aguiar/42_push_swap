@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/29 11:36:01 by zeenyt           ###   ########.fr       */
+/*   Created: 2023/07/20 15:20:57 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/10/26 16:14:05 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *msg)
 {
-	t_stack	*stack_a;
+	int	counter;
 
-	if (argc < 2)
-		return (1);
-	stack_a = create_stack(argc - 1, ++argv);
-	check_duplicate(stack_a);
-	clear_stack(&stack_a, free, "Finish test.");
-	return (0);
+	if (msg == NULL)
+		return (0);
+	counter = 0;
+	while (msg[counter])
+		counter++;
+	return (counter);
 }

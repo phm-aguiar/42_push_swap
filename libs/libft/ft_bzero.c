@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/29 11:36:01 by zeenyt           ###   ########.fr       */
+/*   Created: 2023/07/21 08:14:22 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/09/07 15:38:42 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_bzero(void *array, size_t num)
 {
-	t_stack	*stack_a;
+	char	*temp;
+	size_t	counter;
 
-	if (argc < 2)
-		return (1);
-	stack_a = create_stack(argc - 1, ++argv);
-	check_duplicate(stack_a);
-	clear_stack(&stack_a, free, "Finish test.");
-	return (0);
+	temp = (char *)array;
+	counter = 0;
+	while (counter < num)
+	{
+		temp[counter] = '\0';
+		counter++;
+	}
 }

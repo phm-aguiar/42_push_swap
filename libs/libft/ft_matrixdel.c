@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_matrixdel.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/29 11:36:01 by zeenyt           ###   ########.fr       */
+/*   Created: 2023/10/27 15:47:22 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/11/13 18:30:23 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_matrixdel(char **matrix)
 {
-	t_stack	*stack_a;
+	int	i;
 
-	if (argc < 2)
-		return (1);
-	stack_a = create_stack(argc - 1, ++argv);
-	check_duplicate(stack_a);
-	clear_stack(&stack_a, free, "Finish test.");
-	return (0);
+	i = 0;
+	while (matrix[i])
+	{
+		free(matrix[i]);
+		i++;
+	}
+	free(matrix);
+	matrix = NULL;
 }

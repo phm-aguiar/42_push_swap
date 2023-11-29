@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/29 11:36:01 by zeenyt           ###   ########.fr       */
+/*   Created: 2023/07/11 15:05:05 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/10/16 11:20:53 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-int	main(int argc, char **argv)
+int	ft_sqrt(int nb)
 {
-	t_stack	*stack_a;
+	int	raiz;
+	int	z;
 
-	if (argc < 2)
-		return (1);
-	stack_a = create_stack(argc - 1, ++argv);
-	check_duplicate(stack_a);
-	clear_stack(&stack_a, free, "Finish test.");
-	return (0);
+	raiz = nb;
+	if (raiz < 1)
+		return (0);
+	while (1)
+	{
+		z = (raiz + nb / raiz) / 2;
+		if (z == raiz)
+			break ;
+		raiz = z;
+	}
+	if ((raiz * raiz) == nb)
+		return (raiz);
+	else
+		return (0);
 }

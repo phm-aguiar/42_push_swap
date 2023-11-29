@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_duplicate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/29 11:36:01 by zeenyt           ###   ########.fr       */
+/*   Created: 2023/11/29 10:53:38 by zeenyt            #+#    #+#             */
+/*   Updated: 2023/11/29 11:05:54 by zeenyt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdlib.h>
 
-int	main(int argc, char **argv)
+void	check_duplicate(t_stack *stack)
 {
-	t_stack	*stack_a;
+	t_stack	*tmp;
+	t_stack	*tmp2;
 
-	if (argc < 2)
-		return (1);
-	stack_a = create_stack(argc - 1, ++argv);
-	check_duplicate(stack_a);
-	clear_stack(&stack_a, free, "Finish test.");
-	return (0);
+	tmp = stack;
+	while (tmp)
+	{
+		tmp2 = tmp->next;
+		while (tmp2)
+		{
+			if (tmp->content == tmp2->content)
+				clear_stack(&stack, free, "Error: Duplicate number.");
+			tmp2 = tmp2->next;
+		}
+		tmp = tmp->next;
+	}
 }

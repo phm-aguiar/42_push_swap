@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strisnumber.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/29 11:36:01 by zeenyt           ###   ########.fr       */
+/*   Created: 2023/11/29 11:19:47 by zeenyt            #+#    #+#             */
+/*   Updated: 2023/11/29 11:22:29 by zeenyt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_strisnumber(char *str)
 {
-	t_stack	*stack_a;
+	int	index;
 
-	if (argc < 2)
-		return (1);
-	stack_a = create_stack(argc - 1, ++argv);
-	check_duplicate(stack_a);
-	clear_stack(&stack_a, free, "Finish test.");
-	return (0);
+	index = 0;
+	if (str[index] == '-' || str[index] == '+')
+		index++;
+	while (str[index])
+	{
+		if (str[index] == ' ' || str[index] == '\t')
+		{
+			index++;
+			continue ;
+		}
+		if (!ft_isdigit(str[index]))
+			return (0);
+		index++;
+	}
+	return (1);
 }

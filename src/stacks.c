@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/29 11:36:01 by zeenyt           ###   ########.fr       */
+/*   Created: 2023/11/29 09:52:45 by zeenyt            #+#    #+#             */
+/*   Updated: 2023/11/29 11:41:10 by zeenyt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdlib.h>
 
-int	main(int argc, char **argv)
+t_stack	*create_stack(int argc, char **argv)
 {
-	t_stack	*stack_a;
+	t_stack	*stack;
+	t_stack	*tmp;
+	int		index;
 
-	if (argc < 2)
-		return (1);
-	stack_a = create_stack(argc - 1, ++argv);
-	check_duplicate(stack_a);
-	clear_stack(&stack_a, free, "Finish test.");
-	return (0);
+	index = 0;
+	stack = NULL;
+	while (index < argc)
+	{
+		if (!ft_strisnumber(*argv))
+			clear_stack(&stack, free, "Error: Invalid number.");
+		tmp = malloc(sizeof(t_stack));
+		if (tmp == NULL)
+			return (NULL);
+		tmp->content = ft_atoi(*argv++);
+		tmp->next = stack;
+		stack = tmp;
+		index++;
+	}
+	return (stack);
 }
