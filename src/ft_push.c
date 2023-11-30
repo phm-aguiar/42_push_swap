@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 10:57:57 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/11/29 15:21:41 by zeenyt           ###   ########.fr       */
+/*   Created: 2023/11/29 14:46:10 by zeenyt            #+#    #+#             */
+/*   Updated: 2023/11/29 15:39:22 by zeenyt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdlib.h>
 
-void	clear_stack(t_stack **lst, void (*del)(void *), char *msg)
+
+
+void	ft_push_a(t_stack **a, t_stack **b)
 {
-	t_stack	*aux;
+	t_stack	*temp;
 
-	if (!lst || !del)
+	if (*b == NULL)
 		return ;
-	while (*lst)
-	{
-		aux = (*lst)->next;
-		del(*lst);
-		*lst = aux;
-	}
-	*lst = NULL;
-	ft_printf("\n\n%s\n\n", msg);
-	if (!ft_strcmp(msg, "cleaning stack_a."))
+	temp = *b;
+	*b = (*b)->next;
+	temp->next = *a;
+	*a = temp;
+	ft_printf("\nPush A\n");
+}
+
+void	ft_push_b(t_stack **a, t_stack **b)
+{
+	t_stack	*temp;
+
+	if (*a == NULL)
 		return ;
-	if (!ft_strcmp(msg, "Finish test."))
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	temp = *a;
+	*a = (*a)->next;
+	temp->next = *b;
+	*b = temp;
+	ft_printf("\nPush B\n");
 }

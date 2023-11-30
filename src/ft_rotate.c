@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 10:57:57 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/11/29 15:21:41 by zeenyt           ###   ########.fr       */
+/*   Created: 2023/11/29 15:36:41 by zeenyt            #+#    #+#             */
+/*   Updated: 2023/11/29 15:39:32 by zeenyt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdlib.h>
 
-void	clear_stack(t_stack **lst, void (*del)(void *), char *msg)
+void	ft_pop(t_stack **head)
 {
-	t_stack	*aux;
+	t_stack	*temp;
 
-	if (!lst || !del)
+	if (*head == NULL)
 		return ;
-	while (*lst)
+	temp = *head;
+	*head = (*head)->next;
+	free(temp);
+}
+
+void	ft_rotate_a(t_stack **a)
+{
+	t_stack	*first;
+	t_stack	*last;
+
+	if (*a == NULL || (*a)->next == NULL)
+		return ;
+	first = *a;
+	*a = (*a)->next;
+	last = *a;
+	while (last->next)
 	{
-		aux = (*lst)->next;
-		del(*lst);
-		*lst = aux;
+		last = last->next;
 	}
-	*lst = NULL;
-	ft_printf("\n\n%s\n\n", msg);
-	if (!ft_strcmp(msg, "cleaning stack_a."))
-		return ;
-	if (!ft_strcmp(msg, "Finish test."))
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	last->next = first;
+	first->next = NULL;
+	ft_printf("\nRotate A\n");
 }
