@@ -3,19 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/29 15:43:37 by zeenyt           ###   ########.fr       */
+/*   Updated: 2023/12/03 18:12:35 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+void	ft_print_stack(t_stack *stack)
+{
+	t_stack	*current;
+
+	current = stack;
+	while (current)
+	{
+		ft_printf("content: %d helf: %d high: %d low: %d\n", current->content,
+				current->index, current->high, current->low);
+		current = current->next;
+	}
+	ft_printf("\n");
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack	*current;
 	t_stack	*stack_b;
 
 	if (argc < 2)
@@ -23,31 +36,12 @@ int	main(int argc, char **argv)
 	stack_a = create_stack(argc - 1, ++argv);
 	check_duplicate(stack_a);
 	stack_b = NULL;
-	current = stack_a;
-	while (current)
-	{
-		ft_printf("%d ", current->content);
-		current = current->next;
-	}
-	ft_swap_a(&stack_a);
-	ft_push_b(&stack_a, &stack_b);
-	ft_push_b(&stack_a, &stack_b);
-	ft_swap_b(&stack_b);
-	current = stack_b;
-	ft_swap_a(&stack_a);
-	ft_printf("\n B:");
-	while (current)
-	{
-		ft_printf("%d ", current->content);
-		current = current->next;
-	}
-	current = stack_a;
-	ft_printf("\n A:");
-	while (current)
-	{
-		ft_printf("%d ", current->content);
-		current = current->next;
-	}
+	find_high(&stack_a);
+	find_low(&stack_a);
+	while (stack_a)
+		min_to_b(&stack_a, &stack_b);
+	while (stack_b)
+		ft_push(&stack_a, &stack_b, 'b');
 	clear_stack(&stack_a, free, "Finish test.");
 	return (0);
 }

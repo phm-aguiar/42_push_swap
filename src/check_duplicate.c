@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_duplicate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:53:38 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/11/29 11:05:54 by zeenyt           ###   ########.fr       */
+/*   Updated: 2023/12/03 17:13:09 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdlib.h>
-
 void	check_duplicate(t_stack *stack)
 {
 	t_stack	*tmp;

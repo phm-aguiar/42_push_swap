@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:46:10 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/11/29 15:39:22 by zeenyt           ###   ########.fr       */
+/*   Updated: 2023/12/03 17:03:59 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-
-
-void	ft_push_a(t_stack **a, t_stack **b)
+void	ft_push(t_stack **a, t_stack **b, char c)
 {
 	t_stack	*temp;
 
@@ -24,18 +22,16 @@ void	ft_push_a(t_stack **a, t_stack **b)
 	*b = (*b)->next;
 	temp->next = *a;
 	*a = temp;
-	ft_printf("\nPush A\n");
+	if (c == 'a')
+		ft_printf("pa\n");
+	else if (c == 'b')
+		ft_printf("pb\n");
 }
 
-void	ft_push_b(t_stack **a, t_stack **b)
-{
-	t_stack	*temp;
+/* pa (push a): Take the first element at 
+the top of b and put it at the top of a.
+Do nothing if b is empty. */
 
-	if (*a == NULL)
-		return ;
-	temp = *a;
-	*a = (*a)->next;
-	temp->next = *b;
-	*b = temp;
-	ft_printf("\nPush B\n");
-}
+/* pb (push b): Take the first element at the top 
+of a and put it at the top of b.
+Do nothing if a is empty. */

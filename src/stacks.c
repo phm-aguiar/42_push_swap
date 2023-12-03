@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 09:52:45 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/11/29 14:52:21 by zeenyt           ###   ########.fr       */
+/*   Updated: 2023/12/03 15:57:11 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,10 @@ t_stack	*create_stack(int argc, char **argv)
 			clear_stack(&stack, free, "Error: Memory allocation failed.");
 		tmp->content = ft_atoi(*argv++);
 		tmp->next = NULL;
+		tmp->high = 0;
+		tmp->low = 0;
 		end_add(&stack, tmp);
 		index++;
 	}
-	return (stack);
-}
-
-t_stack	*create_stack_b(int value)
-{
-	t_stack	*stack;
-
-	stack = malloc(sizeof(t_stack));
-	if (stack == NULL)
-		clear_stack(&stack, free, "Error: Memory allocation failed.");
-	stack->content = value;
-	stack->next = NULL;
 	return (stack);
 }
