@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:13:42 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/03 16:12:38 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:53:31 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,14 @@
 
 typedef struct s_stack
 {
-	int				content;
-	int				high;
-	int				low;
-	int				index;
+	int				value;
+	int				excess;
+	int				height;
 	struct s_stack	*next;
 }					t_stack;
 
 t_stack				*add_value(t_stack *stack, int value);
 t_stack				*create_stack(int len, char **values);
-t_stack				*create_stack_b(int value);
 void				check_duplicate(t_stack *stack);
 void				clear_stack(t_stack **lst, void (*del)(void *), char *msg);
 void				ft_swap(t_stack **a, char c);

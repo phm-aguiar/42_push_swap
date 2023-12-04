@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 18:11:54 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/03 10:47:41 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:13:06 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 // STRUCTS LIBFT
 typedef struct s_bonus
 {
-	void			*content;
+	void			*value;
 	struct s_bonus	*next;
 }					t_list;
 
@@ -111,7 +111,7 @@ int					ft_putptr(size_t number, char *base);
 int					ft_putchar(char c);
 
 // FUNCTIONS LIST LIBFT
-t_list				*ft_lstnew(void *content);
+t_list				*ft_lstnew(void *value);
 void				ft_lstadd_front(t_list **lst, t_list *newnode);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
