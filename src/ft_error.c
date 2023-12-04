@@ -6,12 +6,11 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:57:57 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/12/03 17:05:02 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:16:28 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdlib.h>
 
 void	clear_stack(t_stack **lst, void (*del)(void *), char *msg)
 {

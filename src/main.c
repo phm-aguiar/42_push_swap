@@ -6,25 +6,25 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/03 18:12:35 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:53:53 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_print_stack(t_stack *stack)
-{
-	t_stack	*current;
+// void	ft_print_stack(t_stack *stack)
+// {
+// 	t_stack	*current;
 
-	current = stack;
-	while (current)
-	{
-		ft_printf("content: %d helf: %d high: %d low: %d\n", current->content,
-				current->index, current->high, current->low);
-		current = current->next;
-	}
-	ft_printf("\n");
-}
+// 	current = stack;
+// 	while (current)
+// 	{
+// 		ft_printf("value: %d helf: %d high: %d low: %d\n", current->value,
+// 				current->index, current->high, current->low);
+// 		current = current->next;
+// 	}
+// 	ft_printf("\n");
+// }
 
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 09:52:45 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/12/03 15:57:11 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:53:40 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ t_stack	*create_stack(int argc, char **argv)
 	{
 		if (!ft_strisnumber(*argv))
 			clear_stack(&stack, free, "Error: Invalid number.");
-		tmp = malloc(sizeof(t_stack));
+		tmp = (t_stack *)malloc(sizeof(t_stack));
 		if (tmp == NULL)
 			clear_stack(&stack, free, "Error: Memory allocation failed.");
-		tmp->content = ft_atoi(*argv++);
+		tmp->value = ft_atoi(*argv++);
+		tmp->excess = argc - index;
+		tmp->height = 0;
 		tmp->next = NULL;
-		tmp->high = 0;
-		tmp->low = 0;
 		end_add(&stack, tmp);
 		index++;
 	}
