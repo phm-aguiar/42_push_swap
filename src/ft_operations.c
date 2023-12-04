@@ -6,42 +6,44 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:58:50 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/03 18:25:42 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:14:55 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	assign_index(t_stack **a)
+void	ft_quick_sort(t_stack **a, t_stack **b)
 {
-	t_stack	*current;
-	int		index;
+	t_stack	*pivot;
+	t_stack	*less;
+	t_stack	*greater;
 
-	index = 0;
-	current = *a;
-	while (current)
+	less = NULL;
+	greater = NULL;
+	if (*a == NULL || (*a)->next == NULL)
+		return ;
+	pivot = *a;
+	*a = pivot->next;
+	pivot->next = NULL;
+	while (*a)
 	{
-		current->index = index++;
-		current = current->next;
+		*b = *a;
+		*a = (*b)->next;
+		(*b)->next = NULL;
+		if ((*b)->value < pivot->value)
+			ft_push(&less, b, 'a');
+		else
+			ft_push(&greater, b, 'a');
 	}
-}
-
-void	min_to_b(t_stack **a, t_stack **b)
-{
-	t_stack	*current;
-	int		len;
-	int		index;
-
-	index = 0;
-	assign_index(a);
-	find_low(a);
-	current = *a;
-	len = (ft_stacksize(*a) - 1) / 2;
-	current = *a;
-	while (current->low != 1)
+	ft_quick_sort(less);
+	ft_quick_sort(&greater);
+	while (less)
 	{
-		ft_rotate(a, 'a');
-		current = *a;
+		ft_push(a, &less, 'a');
 	}
-	ft_push(b, a, 'a');
+	ft_push(a, &pivot, 'a');
+	while (greater)
+	{
+		ft_push(a, &greater, 'a');
+	}
 }

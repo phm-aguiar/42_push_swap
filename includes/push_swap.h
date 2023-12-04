@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:13:42 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/04 10:53:31 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:14:40 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ void				ft_rotate_ab(t_stack **a, t_stack **b);
 void				ft_rotate(t_stack **a, char c);
 void				ft_rev_rotate(t_stack **stack, char c);
 int					ft_stacksize(t_stack *lst);
-void				find_high(t_stack **a);
-void				find_low(t_stack **a);
-void				min_to_b(t_stack **a, t_stack **b);
-void				assign_index(t_stack **a);
+void				define_height(t_stack **stack);
+void				assign_excess(t_stack **stack);
+void				pre_push(t_stack **stack_a, t_stack **stack_b);
+void				bubblesort(t_stack **head);
+int					ft_is_sorted(t_stack *stack);
+void				ft_quick_sort(t_stack **a, t_stack **b);
 
 #endif

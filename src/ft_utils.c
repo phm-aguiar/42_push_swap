@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 10:48:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/04 11:08:03 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:54:42 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,17 @@ int	ft_stacksize(t_stack *lst)
 	return (count);
 }
 
-void	define_height(t_stack **stack)
+int	ft_is_sorted(t_stack *stack)
 {
-	t_stack	*tmp;
-	int		i;
+	t_stack	*current;
 
-	if (!(*stack))
-		return ;
-	i = 0;
-	tmp = *stack;
-	while (tmp)
+	current = stack;
+	while (current->next)
 	{
-		tmp->height = i++;
-		tmp = tmp->next;
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
 	}
+	return (1);
 }
+
