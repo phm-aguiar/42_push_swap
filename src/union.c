@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:54:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/04 12:07:58 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:29:16 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ void	floadf(char *str)
 	i = 0;
 	while (str[i])
 	{
-		j = 0;
-		while (j < i)
+		j = i + 1;
+		while (str[j])
 		{
-			if (str[i] == str[j])
+			if (str[i] == str[j] && str[i] != '*')
 			{
 				str[j] = '*';
-				break ;
 			}
 			j++;
 		}
@@ -45,7 +44,7 @@ void	ft_union(char *str1, char *str2)
 		j = 0;
 		while (str2[j])
 		{
-			if (str1[i] == str2[j])
+			if (str1[i] == str2[j] && str1[i] != '*')
 			{
 				str2[j] = '*';
 				break ;
@@ -73,7 +72,6 @@ int	main(int argc, char **argv)
 			if (*str1 != '*')
 				write(1, str1, 1);
 			str1++;
-			str2++;
 		}
 		while (*str2)
 		{
