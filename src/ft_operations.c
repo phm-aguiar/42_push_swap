@@ -6,44 +6,47 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:58:50 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/04 19:14:55 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/05 20:09:42 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_quick_sort(t_stack **a, t_stack **b)
+void	start_with_merge(t_stack **stk_a, t_stack **stk_b)
 {
-	t_stack	*pivot;
-	t_stack	*less;
-	t_stack	*greater;
+	int		size;
+	int		index;
+	t_stack	*current;
 
-	less = NULL;
-	greater = NULL;
-	if (*a == NULL || (*a)->next == NULL)
-		return ;
-	pivot = *a;
-	*a = pivot->next;
-	pivot->next = NULL;
-	while (*a)
+	current = *stk_a;
+	size = ft_stacksize(current) / 2;
+	index = 0;
+	while (index < size)
 	{
-		*b = *a;
-		*a = (*b)->next;
-		(*b)->next = NULL;
-		if ((*b)->value < pivot->value)
-			ft_push(&less, b, 'a');
+		ft_push(stk_b, stk_a, 'b');
+		index++;
+	}
+}
+
+void	calcule_cust(t_stack **stk_a, t_stack **stk_b)
+{
+	t_stack	*current;
+	t_stack	*currentb;
+
+	current = *stk_a;
+	currentb = *stk_b;
+	while (current->max != 1 && currentb)
+	
+	{
+		if(cmp_values(current->value, currentb->value) && currentb){
+			ft_push(stk_b, stk_a, 'b');
+			ft_rotate(stk_b, 'b');
+			}
 		else
-			ft_push(&greater, b, 'a');
-	}
-	ft_quick_sort(less);
-	ft_quick_sort(&greater);
-	while (less)
-	{
-		ft_push(a, &less, 'a');
-	}
-	ft_push(a, &pivot, 'a');
-	while (greater)
-	{
-		ft_push(a, &greater, 'a');
+			{
+			ft_push(stk_b, stk_a, 'a');
+			ft_rotate(stk_b, 'b');
+			}
+			
 	}
 }

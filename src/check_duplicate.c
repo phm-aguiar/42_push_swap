@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:53:38 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/12/04 10:16:54 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:44:08 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_duplicate(t_stack *stack)
 		while (tmp2)
 		{
 			if (tmp->value == tmp2->value)
-				clear_stack(&stack, free, "Error: Duplicate number.");
+				clear_stack(&stack, free, 42);
 			tmp2 = tmp2->next;
 		}
 		tmp = tmp->next;
