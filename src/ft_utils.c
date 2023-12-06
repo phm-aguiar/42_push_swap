@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/03 10:48:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/06 18:41:37 by phenriq2         ###   ########.fr       */
+/*   Created: 2023/12/06 18:59:24 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/12/06 19:00:11 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,6 +234,3 @@ int	moviment_count(t_stack **stack_a, t_stack **stack_b, t_ps *mc)
 	}
 	return (count);
 }
-
-
-

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 10:57:57 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/12/06 12:02:10 by phenriq2         ###   ########.fr       */
+/*   Created: 2023/12/06 18:58:31 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/12/06 18:58:34 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	clear_stack(t_stack **lst, void (*del)(void *), char msg)
 	}
 	*lst = NULL;
 	if (msg == 1)
-		return;
+		return ;
 	if (msg == 42)
 		exit(EXIT_SUCCESS);
 	exit(EXIT_FAILURE);

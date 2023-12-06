@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 09:52:45 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/12/06 15:40:18 by phenriq2         ###   ########.fr       */
+/*   Created: 2023/12/06 18:59:47 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/12/06 18:59:49 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_stack	*create_stack(int argc, char **argv, int *sorted)
 			clear_stack(&stack, free, 42);
 		tmp->value = ft_atoi(*argv++);
 		tmp->stay = 0;
-		if (tmp->value == sorted[0] || tmp->value == sorted[argc-1])
+		if (tmp->value == sorted[0] || tmp->value == sorted[argc - 1])
 			tmp->stay = 1;
 		tmp->next = NULL;
 		end_add(&stack, tmp);

@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:13:42 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/06 18:48:03 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:00:48 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_ps
 	int				size_a;
 	int				size_b;
 	int				index;
-	void (*del)(void *);
+	void			(*del)(void *);
 	char			op;
 }					t_ps;
 

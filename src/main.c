@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:17:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/06 18:51:28 by phenriq2         ###   ########.fr       */
+/*   Created: 2023/12/06 18:59:40 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/12/06 18:59:58 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdlib.h>
 
 static void	ft_print_tab(int *tab, int size)
 {
@@ -74,9 +73,8 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int 	*sorted;
+	int		*sorted;
 	t_ps	root;
-	
 
 	init_values(&root);
 	stack_b = NULL;
