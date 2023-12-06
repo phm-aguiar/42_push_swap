@@ -21,6 +21,7 @@ CFILES = main.c \
 		ft_rotate.c\
 		ft_utils.c\
 		ft_operations.c\
+		init.c\
 
 
 OBJECTS = $(addprefix $(OBJ_PATH), $(CFILES:.c=.o))
@@ -75,7 +76,7 @@ make_temp:
 	611 968 306 156 217 140 550 826 715 37 754 705 
 
 15_sorted:
-	./push_swap 1 2 3 4 5 6 8 9 10 11 12 13 14 15 16
+	./push_swap 611 968 306 156 217 140 550 826 715 37 754 705
 
 valgrind_500: make_temp all
 	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=$(TEMP_PATH)/valgrind-out.txt \

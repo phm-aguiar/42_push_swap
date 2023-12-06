@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 10:57:57 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/12/06 12:02:10 by phenriq2         ###   ########.fr       */
+/*   Created: 2023/12/06 18:09:39 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/12/06 18:49:17 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	clear_stack(t_stack **lst, void (*del)(void *), char msg)
+void	init_values(t_ps *iv)
 {
-	t_stack	*aux;
-
-	if (!lst || !del)
-		return ;
-	while (*lst)
-	{
-		aux = (*lst)->next;
-		del(*lst);
-		*lst = aux;
-	}
-	*lst = NULL;
-	if (msg == 1)
-		return;
-	if (msg == 42)
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	iv->xy.x = 0;
+	iv->xy.y = 0;
+	iv->op = 0;
+	iv->index = 0;
+	iv->cur_a = NULL;
+	iv->cur_b = NULL;
+	iv->size_a = 0;
+	iv->size_b = 0;
+	iv->del = free;
 }

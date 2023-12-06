@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 09:52:45 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/12/05 18:48:15 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/06 15:40:18 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	end_add(t_stack **lst, t_stack *new_node)
 	last->next = new_node;
 }
 
-t_stack	*create_stack(int argc, char **argv)
+t_stack	*create_stack(int argc, char **argv, int *sorted)
 {
 	t_stack	*stack;
 	t_stack	*tmp;
@@ -50,6 +50,9 @@ t_stack	*create_stack(int argc, char **argv)
 		if (tmp == NULL)
 			clear_stack(&stack, free, 42);
 		tmp->value = ft_atoi(*argv++);
+		tmp->stay = 0;
+		if (tmp->value == sorted[0] || tmp->value == sorted[argc-1])
+			tmp->stay = 1;
 		tmp->next = NULL;
 		end_add(&stack, tmp);
 		index++;
