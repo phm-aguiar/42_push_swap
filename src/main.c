@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:59:40 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/06 18:59:58 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:26:24 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,8 @@ void	ft_print_stack(t_stack *stack, char c)
 	{
 		if (tmp->value)
 			ft_printf("value:%d next:%d prev:%d weight:%d index:%d stay:%d\n",
-						tmp->value,
-						tmp->n_neighbour,
-						tmp->p_neighbour,
-						tmp->weight,
-						tmp->index,
-						tmp->stay);
+				tmp->value, tmp->n_neighbour, tmp->p_neighbour, tmp->weight,
+				tmp->index, tmp->stay);
 		tmp = tmp->next;
 	}
 	ft_printf("\n");
@@ -60,15 +56,12 @@ void	pre_push_swap(t_stack **stack_a, t_stack **stack_b, t_ps *pps)
 	set_weight(stack_b);
 	set_index(stack_a);
 	set_index(stack_b);
-	ft_printf("Stack A\nvalue:%d next:%d prev:%d\n",
-				(*stack_a)->value,
-				(*stack_a)->n_neighbour,
-				(*stack_a)->p_neighbour);
-	ft_printf("Stack B\nvalue:%d next:%d prev:%d\n",
-				(*stack_b)->value,
-				(*stack_b)->n_neighbour,
-				(*stack_b)->p_neighbour);
+	ft_printf("Stack A\nvalue:%d next:%d prev:%d\n", (*stack_a)->value,
+		(*stack_a)->n_neighbour, (*stack_a)->p_neighbour);
+	ft_printf("Stack B\nvalue:%d next:%d prev:%d\n", (*stack_b)->value,
+		(*stack_b)->n_neighbour, (*stack_b)->p_neighbour);
 }
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -77,10 +70,11 @@ int	main(int argc, char **argv)
 	t_ps	root;
 
 	init_values(&root);
+	is_max_or_min(++argv);
 	stack_b = NULL;
 	if (argc < 2)
 		return (1);
-	sorted = ft_sort_array(argc - 1, ++argv);
+	sorted = ft_sort_array(argc - 1, argv);
 	stack_a = create_stack(argc - 1, argv, sorted);
 	check_duplicate(stack_a);
 	set_neighbour(&stack_a, sorted, argc - 1);

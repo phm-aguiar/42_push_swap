@@ -14,13 +14,15 @@ RESET = \033[0m
 
 CFILES = main.c \
 		stacks.c\
-		check_duplicate.c\
+		checkers.c\
 		ft_error.c\
 		ft_swap.c\
 		ft_push.c\
 		ft_rotate.c\
 		ft_utils.c\
+		ft_utils2.c\
 		ft_operations.c\
+		set_graph.c\
 		init.c\
 
 
@@ -76,7 +78,7 @@ make_temp:
 	611 968 306 156 217 140 550 826 715 37 754 705 
 
 15_sorted:
-	./push_swap 611 968 306 156 217 140 550 826 715 37 754 705
+	./push_swap 611 968 306 156 217 140 550 826 715 37 754 705 2147483647
 
 valgrind_500: make_temp all
 	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=$(TEMP_PATH)/valgrind-out.txt \

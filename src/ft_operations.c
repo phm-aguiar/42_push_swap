@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_operations.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:58:43 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/06 18:58:47 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:35:10 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	start_with_merge(t_stack **stk_a, t_stack **stk_b)
 		ft_push(stk_b, stk_a, 'b');
 	}
 }
+
 int	search_perfect(t_stack *stk_a, t_stack *stk_b, t_ps *sp)
 {
 	sp->index = 1;
@@ -72,8 +73,8 @@ void	move_perfect_head(t_stack **stk_a, t_stack **stk_b)
 	else
 	{
 		ft_printf("\nvalue = %d\nNext = %d Prev = %d\n", cur_a->value,
-				cur_a->n_neighbour, cur_a->p_neighbour);
-		// ft_rev_rotate_ab(stk_a, stk_b);
+			cur_a->n_neighbour, cur_a->p_neighbour);
+		ft_rev_rotate_ab(stk_a, stk_b);
 	}
 }
 // void	move_perfect_stack(t_stack **stk_a, t_stack **stk_b)

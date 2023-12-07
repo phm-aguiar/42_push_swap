@@ -6,17 +6,17 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 15:49:39 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/09/07 15:38:42 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:21:05 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	size_t	index;
-	int		issing;
-	int		result;
+	long	issing;
+	long	result;
 
 	index = 0;
 	result = 0;

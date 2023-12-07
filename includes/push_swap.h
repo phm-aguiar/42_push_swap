@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:13:42 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/06 19:00:48 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:20:55 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define STACK_A_DIV 2
 
 typedef struct s_xy
 {
@@ -62,8 +64,6 @@ void				ft_rev_rotate_ab(t_stack **a, t_stack **b);
 int					ft_stacksize(t_stack *lst);
 int					ft_is_sorted(t_stack *stack);
 void				start_with_merge(t_stack **stk_a, t_stack **stk_b);
-// void				set_max(t_stack **stack);
-// void				set_min(t_stack **stack);
 void				set_weight(t_stack **stack);
 void				set_index(t_stack **stack);
 void				moviment_cust(int cust_a, int cust_b);
@@ -76,5 +76,7 @@ int					search_perfect(t_stack *stk_a, t_stack *stk_b, t_ps *sp);
 int					moviment_count(t_stack **stack_a, t_stack **stack_b,
 						t_ps *mc);
 void				init_values(t_ps *iv);
-
+int					find_next(int value, int *sorted, int size);
+int					find_prev(int value, int *sorted, int size);
+void				is_max_or_min(char **argv);
 #endif
