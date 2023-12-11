@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 15:49:39 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/06 23:21:05 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/09 19:02:56 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
-	size_t	index;
-	long	issing;
+	size_t	i;
 	long	result;
+	int		is_negative;
 
-	index = 0;
+	i = 0;
 	result = 0;
-	issing = 1;
-	while ((((nptr[index] >= 9) && (nptr[index] <= 13))
-			|| ((nptr[index]) == 32)))
-		index++;
-	if ((nptr[index] == '-') || (nptr[index] == '+'))
+	is_negative = 1;
+	while (((nptr[i] >= 9) && (nptr[i] <= 13)) || ((nptr[i]) == 32))
 	{
-		if ((nptr[index] == '-'))
-			issing *= -1;
-		index++;
+		i++;
 	}
-	while (nptr[index] >= '0' && nptr[index] <= '9')
+	if ((nptr[i] == '-') || (nptr[i] == '+'))
 	{
-		result = result * 10 + (nptr[index] - '0');
-		index++;
+		if ((nptr[i] == '-'))
+			is_negative *= -1;
+		i++;
 	}
-	result *= issing;
-	return (result);
+	while (ft_isdigit(nptr[i]))
+	{
+		result *= 10;
+		result += nptr[i] - '0';
+		i++;
+	}
+	return (result * is_negative);
 }

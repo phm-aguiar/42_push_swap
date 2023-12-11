@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zeenyt <zeenyt@student.42.fr>              +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:33:53 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/11/29 11:34:08 by zeenyt           ###   ########.fr       */
+/*   Updated: 2023/12/08 14:17:05 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_strcmp(char *s1, char *s2)
 {
 	int	index;
 
+	if (s1 == NULL || s2 == NULL)
+		return (0);
 	index = 0;
 	while (s1[index] && s2[index] && s1[index] == s2[index])
 		index++;

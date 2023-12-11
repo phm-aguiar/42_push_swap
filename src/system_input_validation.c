@@ -1,34 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strisnumber.c                                   :+:      :+:    :+:   */
+/*   system_input_validator.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:19:47 by zeenyt            #+#    #+#             */
-/*   Updated: 2023/12/09 15:57:26 by phenriq2         ###   ########.fr       */
+/*   Created: 2023/12/09 23:18:12 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/12/09 23:20:19 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_strisnumber(char *str)
-{
-	int	index;
-
-	index = 0;
-	if (str[index] == '-' || str[index] == '+')
-		index++;
-	while (str[index])
-	{
-		if (str[index] == ' ' || str[index] == '\t')
-		{
-			index++;
-			continue ;
-		}
-		if (!ft_isdigit(str[index]))
-			return (0);
-		index++;
-	}
-	return (1);
-}
+void	check_input_duplicate(t_ps *scid);
+void	check_input_overflow(t_ps *scio);
+void	check_input_non_numeric(t_ps *scin);

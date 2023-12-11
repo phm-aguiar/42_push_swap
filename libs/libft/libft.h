@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 18:11:54 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/06 23:21:17 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/08 10:43:28 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int					ft_strisnumber(char *str);
 
 // FUNCTIONS TO LIBFT
 int					ft_toupper(int c);
-long				ft_atoi(const char *nptr);
+long				ft_atol(const char *nptr);
 int					ft_tolower(int c);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(long int nbr, char *base);
@@ -120,7 +120,7 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-					void (*del)(void *));
+						void (*del)(void *));
 
 // FUNCTIONS MATH LIBFT
 size_t				ft_nbrlen(long int nbr);

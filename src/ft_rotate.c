@@ -3,68 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:59:03 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/06 19:00:20 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/12/10 19:05:07 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_rotate(t_stack **stack, char c)
+void	rotate_a(t_stack **stack_a)
 {
-	t_stack	*first;
-	t_stack	*current;
+	t_stack	*temp_node;
 
-	if ((*stack) == NULL || (*stack)->next == NULL)
-		return ;
-	first = (*stack);
-	current = (*stack)->next;
-	(*stack) = current;
-	first->next = NULL;
-	while (current->next != NULL)
-		current = current->next;
-	current->next = first;
-	if (c == 'a')
-		ft_printf("ra\n");
-	else if (c == 'b')
-		ft_printf("rb\n");
+	if (*stack_a && (*stack_a)->next)
+	{
+		temp_node = *stack_a;
+		*stack_a = (*stack_a)->next;
+		ft_last(*stack_a)->next = temp_node;
+		temp_node->next = NULL;
+	}
+	ft_printf("ra\n");
 }
 
-void	ft_rotate_ab(t_stack **a, t_stack **b)
+void	rotate_b(t_stack **stack_b)
 {
-	ft_rotate(a, ' ');
-	ft_rotate(b, ' ');
+	t_stack	*temp_node;
+
+	if (*stack_b && (*stack_b)->next)
+	{
+		temp_node = *stack_b;
+		*stack_b = (*stack_b)->next;
+		temp_node->next = NULL;
+		ft_last(*stack_b)->next = temp_node;
+	}
+	ft_printf("rb\n");
+}
+
+void	rotate_rr(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*temp_node;
+
+	if (*stack_a && (*stack_a)->next)
+	{
+		temp_node = *stack_a;
+		*stack_a = (*stack_a)->next;
+		ft_last(*stack_a)->next = temp_node;
+		temp_node->next = NULL;
+	}
+	if (*stack_b && (*stack_b)->next)
+	{
+		temp_node = *stack_b;
+		*stack_b = (*stack_b)->next;
+		temp_node->next = NULL;
+		ft_last(*stack_b)->next = temp_node;
+	}
 	ft_printf("rr\n");
-}
-
-void	ft_rev_rotate(t_stack **stack, char c)
-{
-	t_stack	*last;
-	t_stack	*current;
-
-	if ((*stack) == NULL || (*stack)->next == NULL)
-		return ;
-	current = (*stack);
-	while (current->next != NULL)
-		current = current->next;
-	last = current;
-	current = (*stack);
-	while (current->next->next != NULL)
-		current = current->next;
-	current->next = NULL;
-	last->next = *stack;
-	*stack = last;
-	if (c == 'a')
-		ft_printf("rra\n");
-	else if (c == 'b')
-		ft_printf("rrb\n");
-}
-
-void	ft_rev_rotate_ab(t_stack **a, t_stack **b)
-{
-	ft_rev_rotate(a, ' ');
-	ft_rev_rotate(b, ' ');
-	ft_printf("rrr\n");
 }

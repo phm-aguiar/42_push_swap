@@ -1,6 +1,6 @@
 NAME = libft.a
 
-SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c\
+SRCS = ft_atol.c ft_bzero.c ft_calloc.c ft_isalnum.c\
 		ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isnonzero_digit.c ft_isprint.c\
 		ft_itoa_base.c ft_itoa.c ft_itoa_unsigned.c ft_lstadd_back_bonus.c\
 		ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c\

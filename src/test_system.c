@@ -1,26 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   test_system.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 18:09:39 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/12/06 22:30:36 by phenriq2         ###   ########.fr       */
+/*   Created: 2023/12/10 10:47:48 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/12/10 20:19:40 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	init_values(t_ps *iv)
+void	print_stack(t_ps *sps, char c)
 {
-	iv->xy.x = 0;
-	iv->xy.y = 0;
-	iv->op = 0;
-	iv->index = 0;
-	iv->cur_a = NULL;
-	iv->cur_b = NULL;
-	iv->size_a = 0;
-	iv->size_b = 0;
-	iv->del = free;
+	t_stack	*tmp;
+
+	if (c == 'a')
+		tmp = sps->stack_a;
+	else
+		tmp = sps->stack_b;
+	while (tmp)
+	{
+		ft_printf("value: %d, index: %d, next: %d, id: %d\n",
+			tmp->value, tmp->index, tmp->next_n, tmp->stack_id);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+}
+
+void	print_tab(t_ps *spt)
+{
+	int	i;
+
+	i = 0;
+	while (i < spt->size)
+	{
+		ft_printf("%d ", spt->sorted_array[i]);
+		i++;
+	}
+	ft_printf("\n");
 }
